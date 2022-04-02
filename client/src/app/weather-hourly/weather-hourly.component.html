@@ -1,0 +1,45 @@
+  <div class="card_hourly_wrapper">
+    <div class="card_hourly" *ngFor="let w of weatherData">
+      <div class="city">
+        {{w.nearest_area[0].areaName[0].value}}, {{w.nearest_area[0].region[0].value}}, {{w.nearest_area[0].country[0].value}}        -- HOURLY
+      </div>
+      <div class="hourly_wrapper">
+        <div class="hourly_info">
+          <span class="data">Time: </span>
+          <div class="dropdown-divider"></div>
+          <span class="data">Température: </span>
+          <div class="dropdown-divider"></div>
+          <span class="data">FeelsLike: </span>
+          <div class="dropdown-divider"></div>
+          <span class="data">Condition: </span>
+          <div class="dropdown-divider"></div>
+          <span class="data">Vents: </span>
+          <div class="dropdown-divider"></div>
+          <span class="data">Précipitations: </span>
+          <div class="dropdown-divider"></div>
+        </div>
+
+        <div class="hourly_details" *ngFor="let city of w.weather[0].hourly">
+          <span class="data_detail">{{city.time}}</span>
+          <div class="dropdown-divider"></div>
+          <span class="data_detail">{{city.tempC}}℃</span>
+          <div class="dropdown-divider"></div>
+          <span class="data_detail">{{city.FeelsLikeC}}℃</span>
+          <div class="dropdown-divider"></div>
+          <span class="data_detail">{{city.weatherDesc[0].value}}</span>
+          <div class="dropdown-divider"></div>
+          <span class="data_detail">{{city.windspeedKmph}}Km/h
+            {{city.winddir16Point}}</span>
+          <div class="dropdown-divider"></div>
+          <span class="data_detail">{{city.precipMM}} mm</span>
+          <div class="dropdown-divider"></div>
+        </div>
+      </div>
+      <div class="bottom_wrapper">
+        <div class="observation">Dernière observation: {{w.current_condition[0].localObsDateTime}}
+        </div>
+        <div class="observation">(heure locale)</div>
+      </div>
+
+    </div>
+  </div>

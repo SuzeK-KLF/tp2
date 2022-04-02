@@ -1,0 +1,48 @@
+
+<div class="card_wrapper">
+  <div class="card" *ngFor="let w of weatherData">
+    <div class="city">
+      {{w.nearest_area[0].areaName[0].value}}, {{w.nearest_area[0].region[0].value}}, {{w.nearest_area[0].country[0].value}}
+    </div>
+    <span>
+      <span class="data">Température: </span>
+      <span class="data_detail">{{w.current_condition[0].temp_C}}℃ (ressentie
+        {{w.current_condition[0].FeelsLikeC}}℃)</span>
+    </span>
+    <div class="dropdown-divider"></div>
+    <span>
+      <span class="data">Conditions: </span>
+      <span class="data_detail">{{w.current_condition[0].weatherDesc[0].value}}</span>
+    </span>
+    <div class="dropdown-divider"></div>
+    <span>
+      <span class="data">Vents: </span>
+      <span class="data_detail">{{w.current_condition[0].windspeedKmph}}Km/h
+        {{w.current_condition[0].winddir16Point}}</span>
+    </span>
+    <div class="dropdown-divider"></div>
+    <span>
+      <span class="data">Visibilité: </span>
+      <span class="data_detail">{{w.current_condition[0].visibility}} km</span>
+    </span>
+    <div class="dropdown-divider"></div>
+    <span>
+      <span class="data">UV: </span>
+      <span class="data_detail">{{w.current_condition[0].uvIndex}}</span>
+    </span>
+    <div class="dropdown-divider"></div>
+    <span>
+      <span class="data">Humidité: </span>
+      <span class="data_detail">{{w.current_condition[0].humidity}}%</span>
+    </span>
+    <div class="dropdown-divider"></div>
+    <span>
+      <span class="data">Précipitations: </span>
+      <span class="data_detail">{{w.current_condition[0].precipMM}} mm</span>
+    </span>
+    <div class="bottom_wrapper">
+      <div class="observation">Dernière observation: {{w.current_condition[0].localObsDateTime}}</div>
+      <div class="observation">(heure locale)</div>
+    </div>
+  </div>
+</div>

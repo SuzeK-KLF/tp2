@@ -1,0 +1,103 @@
+/* You can add global styles to this file, and also import other style files */
+body,div,ul,ol,dl,dt,dd,li,dl,h1,h2,h3,h4{margin:0;padding:0;font-style:normal;font:12px/22px,verdana}
+ 
+ol,ul,li{list-style:none;}
+ 
+img{border:0;vertical-align:middle;}
+ 
+body{color:#000000;background:#FFF;text-align:center;}
+ 
+.clear{clear:both;height:1px;width:100%;overflow:hidden;margin-top:-1px;}
+ 
+a{color:#000000;text-decoration:none;}
+ 
+a:hover{color:#BA2636;text-decoration:underline;}
+
+h1{
+    font-size: 50px;
+}
+
+.img{
+    width: 100px;
+}
+
+.header{
+    padding: 40px 20px 10px 20px;
+    width: 100%;
+    height: 200px;
+    background-color: beige;
+}
+
+.input-group{
+    margin-top: 20px;
+    width: 100%;
+}
+
+.options_wrapper{
+    width: auto;
+    justify-content: center !important;
+    margin: 15px 0 15px 0;
+}
+
+.condition{
+    margin-right: 40px;
+}
+
+.city{
+    font-size: 20px;
+    font-weight: bolder;
+    font-family: verdana;
+    margin: 30px 10px 20px;
+}
+
+.card{
+    width: 350px;
+    height: 500px;
+    border-radius: 15px;
+    border: 2px beige solid;
+    margin: 20px;
+    text-align: left;
+    padding: 0 10px;
+}
+
+.card_hourly{
+    width: 1200px;
+    height: 500px;
+    border-radius: 15px;
+    border: 2px beige solid;
+    margin: 20px;
+    flex-direction: row;
+    padding: 0 10px;
+}
+
+.data{
+    font-family: arial;
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 20px;
+}
+
+.data_detail{
+    font-size: 16px;
+}
+
+.bottom_wrapper{
+    margin: 40px 10px;
+}
+
+.card_wrapper{
+    display: flex;
+    flex-flow:row wrap;
+}
+
+.hourly_wrapper{
+    display: flex;
+}
+
+.hourly_info{
+    margin-right: 10px;
+}
+
+.hourly_details{
+    margin-right: 16px;
+}

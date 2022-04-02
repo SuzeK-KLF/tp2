@@ -1,0 +1,25 @@
+<!-- <p>{{valeur}}</p>
+<p>{{weatherSubject[0].weatherSubject[0].current_condition[0][0].FeelsLikeC}}</p>
+
+<input type="text" [(ngModel)] = "valeur">
+<button (click)="alertFunc()">Alert</button>
+
+<nav>
+    <a routerLink="weather/now">NOW</a>
+    <a routerLink="weather/hourly">HOURLY</a>
+</nav> -->
+
+
+<header class="header">
+  <a href="/weather">
+    <h1 class="head"><img src="../../assets/logo.svg" class="img bg-image hover-overlay ripple shadow-1-strong rounded" /> MétéoWiki</h1>
+  </a>
+
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" placeholder="    Recherche..." aria-label="Recipient's username"
+      aria-describedby="button-addon2" [(ngModel)]="valeur">
+    <button class="btn btn-info" (click)="submitFunc()" type="button" id="button-addon2">Submit</button>
+  </div>
+
+</header>
+
