@@ -12,7 +12,6 @@ import { WeatherHourlyComponent } from './weather-hourly/weather-hourly.componen
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { WeatherDefaultComponent } from './weather-default/weather-default.component';
-import { RouterOptionsComponent } from './router-options/router-options.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +22,6 @@ import { RouterOptionsComponent } from './router-options/router-options.componen
     HeaderComponent,
     FooterComponent,
     WeatherDefaultComponent,
-    RouterOptionsComponent,
   ],
   imports: [
     BrowserModule,
