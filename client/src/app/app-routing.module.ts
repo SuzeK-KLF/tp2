@@ -19,9 +19,9 @@ const routes: Routes = [
   //TODO activer l'authentification sur les routes /weather/now et /weather/hourly
   //L'option "canActivate: [AuthGuard]" permet de bloquer
   //une route si l'utilisateur n'est pas login
-  {path:'weather', component: WeatherDefaultComponent},
-  {path:'weather/now', component: WeatherNowComponent},
-  {path:'weather/hourly', component: WeatherHourlyComponent},
+  {path:'weather', component: WeatherDefaultComponent, canActivate: [AuthGuard]},
+  {path:'weather/now', component: WeatherNowComponent, canActivate: [AuthGuard]},
+  {path:'weather/hourly', component: WeatherHourlyComponent, canActivate: [AuthGuard]},
 
 
 ];

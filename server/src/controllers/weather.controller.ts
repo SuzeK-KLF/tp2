@@ -50,8 +50,10 @@ export class WeatherController{
         });
         
         // /api/v1/weather -> retourne la météo des locations
-        //TODO ajouter l'authentification à cette route en utilisant le authHandler
+        //TODO ajouter l'authentification à cette route en utilisant le authHandler 
+        // 使用authandler为该路由添加认证
         router.get('/',async (req:Request, res: Response) => {
+            console.log("weather controller")
             res.json(await this._weatherService.readWeathers(req.locations));
         });
         

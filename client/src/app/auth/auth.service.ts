@@ -21,25 +21,27 @@ export class AuthService {
   
   //Permet à l'utilisateur de se connecter
   login(auth: Authentification): Observable<UserConnection>{
+    console.log("click");
     return this._httpClient.post<UserConnection>(`${environment.apiBaseUrl}/auth/login`,auth)
     //On envoie l'utilisateur à tous les
     //aboonées du sujet user
     .pipe(tap(user => {
       this.userConnectionSubject.next(user)
       //On dirige l'utilisateur vers /weather
-      this._router.navigate(['weather', 'now'])
+      this._router.navigate(['weather'])
     }));
   }
   
   //Permet à l'utilisateur de créer un compte
   signup(auth: Authentification): Observable<UserConnection>{
+    console.log("click");
     return this._httpClient.post<UserConnection>(`${environment.apiBaseUrl}/auth/signup`,auth)
     //On envoie l'utilisateur à tous les
     //aboonées du sujet user
     .pipe(tap(user => {
       this.userConnectionSubject.next(user)
       //On dirige l'utilisateur vers /weather
-      this._router.navigate(['weather','now'])
+      this._router.navigate(['weather'])
     }));
   }
   
