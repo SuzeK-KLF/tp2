@@ -34,7 +34,6 @@ export class AuthService {
   
   //Permet à l'utilisateur de créer un compte
   signup(auth: Authentification): Observable<UserConnection>{
-    console.log("click");
     return this._httpClient.post<UserConnection>(`${environment.apiBaseUrl}/auth/signup`,auth)
     //On envoie l'utilisateur à tous les
     //aboonées du sujet user

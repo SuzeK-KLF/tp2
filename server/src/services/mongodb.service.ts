@@ -21,25 +21,15 @@ export class MongodbService {
 
     //Retourne les informations d'un utilisateur à partir de son username
     async getUserByUsername(username: string): Promise<WithId<User> | null> {
-
-        const user: Promise<WithId<User> | null> = await this._collection.find({ 'username': { username } }).limit(1)[0];
-        console.log('%cmongodb.service.ts line:26 user', 'color: #007acc;', user);
+        const user: Promise<WithId<User> | null> = this._collection.findOne({ username: username });
         return user;
     }
 
     //Fait la création d'un utilisateur dans la base de données
     async createUser(user: User): Promise<WithId<User> | null> {
-        console.error("Test: createUser")
-        const userToAdd: User = {
-            hash: user.hash,
-            username: user.username
-        }
-        // try {
-            this._collection.insertOne(userToAdd)
-            console.log("create succeed");
-            //Retourner le user créé avec son _id
-            const userNew : Promise<WithId<User>>= await this._collection.find({ username: user.username }).limit(1)[0];
-            console.log('%cmongodb.service.ts line:49 userNew', userNew);
+            this._collection.insertOne({hash: user.hash, username: user.username})
+            // Retourner le user créé avec son _id
+            const userNew : Promise<WithId<User> | null>= this.getUserByUsername(user.username);
             return userNew;
     }
 
