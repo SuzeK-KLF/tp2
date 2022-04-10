@@ -10,23 +10,16 @@ import { WeatherService } from './weather.service';
 })
 export class AppComponent implements OnInit, OnDestroy{
 
-  constructor(private weatherService: WeatherService){
+  constructor(){
 
   }
   title = 'root';
-  public valeur: string = '';
-  public weatherSubject:WttrObject[] = [];
-  private subscription?: Subscription; 
   
   ngOnInit(): void{
-    this.subscription = this.weatherService.weatherSubject.subscribe({next: (valeur) => {
-      this.weatherSubject = valeur;
-    }});
     
   }
 
   ngOnDestroy(): void {
-      this.subscription?.unsubscribe();
   }
 
 }

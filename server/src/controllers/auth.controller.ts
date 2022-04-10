@@ -6,7 +6,7 @@ import { User } from '../interfaces';
 import { AuthService } from '../services/auth.service';
 import { MongodbService } from '../services/mongodb.service';
 import { TYPES } from '../types';
-import { Collection, MongoClient, WithId } from 'mongodb';
+import { WithId } from 'mongodb';
 
 @injectable()
 export class AuthController {
@@ -25,9 +25,9 @@ export class AuthController {
             const auth: Authentification = req.body;
 
             //Trouver l'utilisateur dans la BD, si l'utilisateur est null retournez le code 403 
-            const user: WithId<User> | null = await this._mongodbService.getUserByUsername(auth.username)
+            const user: WithId<User> | null = await this._mongodbService.getUserByUsername(auth.username);
             if (!user) {
-                res.sendStatus(403)
+                res.sendStatus(403);
             } else {
                 //Comparer le mot de passe de la BD avec le mot de passe de la requête, utiliser le auth.service
                 //Retournez le code 403 au besoin
@@ -45,12 +45,12 @@ export class AuthController {
                         console.log(userConnection);
                         res.json(userConnection);
                     } else {
-                        console.error("Your username or password don't match! ")
+                        console.error('Your username or password don\'t match! ');
                         res.sendStatus(403);
                     }
                 }
                 catch (err) {
-                    console.error("Encrypt Password error! " + err.message);
+                    console.error('Encrypt Password error! ' + err.message);
                     res.sendStatus(403);
                 }
             }
@@ -61,10 +61,10 @@ export class AuthController {
             const auth: Authentification = req.body;
             //Valider que l'utilisateur (username) n'est pas déjà dans la BD
             //Retounez un code 405 si déjà présent
-            const user: WithId<User> | null = await this._mongodbService.getUserByUsername(auth.username)
+            const user: WithId<User> | null = await this._mongodbService.getUserByUsername(auth.username);
             if (user) {
-                console.error("Usename already exists!");
-                res.sendStatus(405)
+                console.error('Usename already exists!');
+                res.sendStatus(405);
             } else {
                 //Chiffrer le mot de passe avec auth.service
                 const hash: string = await this._authService.encryptPassword(auth.password);
@@ -74,8 +74,8 @@ export class AuthController {
                     const newUser: User = { 
                         username: auth.username,
                         hash: hash
-                    }
-                    const addUser: WithId<User> | null = await this._mongodbService.createUser(newUser)
+                    };
+                    const addUser: WithId<User> | null = await this._mongodbService.createUser(newUser);
                     //Générer le jeton de l'utilisateur à l'aide du service auth.service 
                     if(addUser!==null){
                         const token: string = this._authService.generateToken(addUser._id.toString());
@@ -86,11 +86,11 @@ export class AuthController {
                         };
                         res.json(userConnection);
                     }else{
-                        console.error("Create user error!")
+                        console.error('Create user error!');
                     }    
                 }
                 catch (err) {
-                    console.error("Sign up failed!" + err.message)
+                    console.error('Sign up failed!' + err.message);
                     res.sendStatus(500);
                 }
             }

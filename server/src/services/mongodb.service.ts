@@ -1,5 +1,5 @@
 import { injectable } from 'inversify';
-import { Collection, MongoClient, W, WithId } from 'mongodb';
+import { Collection, MongoClient, WithId } from 'mongodb';
 import { User } from '../interfaces';
 
 const url = 'mongodb://127.0.0.1:27017';
@@ -27,10 +27,10 @@ export class MongodbService {
 
     //Fait la création d'un utilisateur dans la base de données
     async createUser(user: User): Promise<WithId<User> | null> {
-            this._collection.insertOne({hash: user.hash, username: user.username})
-            // Retourner le user créé avec son _id
-            const userNew : Promise<WithId<User> | null>= this.getUserByUsername(user.username);
-            return userNew;
+        await this._collection.insertOne({hash: user.hash, username: user.username});
+        // Retourner le user créé avec son _id
+        const userNew : Promise<WithId<User> | null>= this.getUserByUsername(user.username);
+        return userNew;
     }
 
 }

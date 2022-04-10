@@ -16,15 +16,11 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
   title = 'header';
   public valeur: string = '';
-  public weatherSubject:WttrObject[] = []; 
   public weatherSearchSubject:WttrObject[] = []; 
   private subscription?: Subscription; 
   
   ngOnInit(): void{
-    this.subscription = this.weatherService.weatherSubject.subscribe({next: (valeur) => {
-      this.weatherSubject = valeur;
-    }});
-    
+
   }
 
   ngOnDestroy(): void {
