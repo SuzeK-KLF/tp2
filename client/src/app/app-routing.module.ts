@@ -10,7 +10,7 @@ import { WeatherDefaultComponent } from './weather-default/weather-default.compo
 const routes: Routes = [
   
   //On redirige / vers /weather/now
-  {path:'',pathMatch:'full', redirectTo:'/'},
+  {path:'',pathMatch:'full', redirectTo:'/weather'},
   
   //Route pour la page d'authentification
   {path:'auth', component: AuthComponent },

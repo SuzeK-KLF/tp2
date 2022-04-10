@@ -17,8 +17,11 @@ export class WeatherController{
     */
     public authHandler = async(req:Request, res:Response, next:NextFunction) => {
         //On va chercher le bearer token envoyé par le client
+        console.log('%cweather.controller.ts line:21 req.header', 'color: #007acc;', req.header('Authorization'));
         const token = req.header('Authorization')?.replace('Bearer ', '');
+        console.log('%cweather.controller.ts line:21 req.header', 'color: #007acc;', req.header('Authorization'));
         try{
+            console.log('%cweather.controller.ts line:23 token', 'color: #007acc;', token);
             const userId = this._authService.decodeToken(token ?? 'invalidtoken');
             req.userId = userId;
             console.log('Valid token');
