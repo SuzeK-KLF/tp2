@@ -21,7 +21,6 @@ export class AuthService {
   
   //Permet à l'utilisateur de se connecter
   login(auth: Authentification): Observable<UserConnection>{
-    console.log("click");
     return this._httpClient.post<UserConnection>(`${environment.apiBaseUrl}/auth/login`,auth)
     //On envoie l'utilisateur à tous les
     //aboonées du sujet user
